@@ -2,8 +2,8 @@ package com.sina.mobile.iflytek;
 
 import java.util.ArrayList;
 
-import org.apache.cordova.api.Plugin;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.api.CallbackContext;
+import org.apache.cordova.api.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,35 +16,17 @@ import com.iflytek.speech.SpeechError;
 import com.iflytek.ui.RecognizerDialog;
 import com.iflytek.ui.RecognizerDialogListener;
 
-public class IFlyTekPlugin extends Plugin {
+public class IFlyTekPlugin extends CordovaPlugin {
 	private static final String TAG = IFlyTekPlugin.class.getSimpleName();
 
-	private String callbackId;
-
 	private RecognizerDialog iatDialog;
-
-	private String appId;
 
 	private String listenerName = "onResults";
 
 	@Override
-	public boolean isSynch(String action) {
-		if (action.equals("init") || action.equals("setOption")
-				|| action.equals("setListener")) {
-			return true;
-		}
-		return super.isSynch(action);
-	}
-
-	@Override
-	public PluginResult execute(String action, final JSONArray args,
-			final String callbackId) {
-		final PluginResult pr = new PluginResult(PluginResult.Status.NO_RESULT);
-
-		if (action.equals("init")) {
-			iatDialog = new RecognizerDialog(IFlyTekPlugin.this.ctx.getContext(),
-					"appid=51236408");
-
+	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException{
+		if ("init".equals(action)) {
+			iatDialog = new RecognizerDialog(this.webView.getContext(),"appid=51236408");
 			Log.d(TAG, "init end");
 
 		} else if (action.equals("setOption")) {
@@ -56,12 +38,7 @@ public class IFlyTekPlugin extends Plugin {
 		} else if (action.equals("setListener")) {
 			this.listenerName = args.optString(0);
 
-			Log.d(TAG, "setListener end");
-
 		} else if (action.equals("start")) {
-			this.callbackId = callbackId;
-			pr.setKeepCallback(true);
-
 			Runnable runnable = new Runnable() {
 				@Override
 				public void run() {
@@ -84,8 +61,7 @@ public class IFlyTekPlugin extends Plugin {
 								e.printStackTrace();
 							}
 
-							IFlyTekPlugin.this.success(jo,
-									IFlyTekPlugin.this.callbackId);
+                            callbackContext.success("get out");
 						}
 
 						@Override
@@ -104,8 +80,8 @@ public class IFlyTekPlugin extends Plugin {
 
 								IFlyTekPlugin.this.webView
 										.loadUrl("javascript:"
-												+ IFlyTekPlugin.this.listenerName
-												+ "(" + jo.toString() + ")");
+                                                + IFlyTekPlugin.this.listenerName
+                                                + "(" + jo.toString() + ")");
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}
@@ -116,13 +92,12 @@ public class IFlyTekPlugin extends Plugin {
 					iatDialog.show();
 				}
 			};
-			this.ctx.runOnUiThread(runnable);
+			this.cordova.getActivity().runOnUiThread(runnable);
 
 			Log.d(TAG, "start end");
 
 		}
-
-		return pr;
+        return false;
 	}
 
 }
