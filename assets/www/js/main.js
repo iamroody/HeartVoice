@@ -1,7 +1,13 @@
 $(document).ready(function(){
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
+    document.addEventListener("deviceready", onDeviceReady, false);
+//    onDeviceReady();
 });
+
+function onDeviceReady() {
+    $.ui.loadContent("#main",false,false,"fade");
+}
 
 function startRecognizer(){
     var options = {
