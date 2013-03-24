@@ -25,6 +25,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/word_to_voice.css" />
+        <link rel="stylesheet" type="text/css" href="css/voice_to_word.css" />
         <link rel="stylesheet" type="text/css" href="css/common-sentences.css" />
         <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css" />
         <script type="text/javascript" src="js/lib/jq.mobi.min.js" ></script>
@@ -51,6 +52,13 @@
                 </div>
 
                 <div class="categories"></div>
+            </div>
+            <div class="panel" id="voice_to_word" title="你说">
+                <header>
+                    <h1><a href="#word_to_voice">我写</a> / <a href="#voice_to_word">你说</a></h1>
+                </header>
+                <div id="text"></div>
+                <a href='javascript:void()' class='button talk' onclick='startRecognizer()'>开始说话</a>
             </div>
         </div>
         <footer></footer>

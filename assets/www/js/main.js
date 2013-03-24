@@ -9,12 +9,12 @@ function onDeviceReady(){
 }
 
 function startRecognizer(){
+    console.log('start------------------');
     var options = {
         appId: '51236408',
         sampleRate: 'rate8k',
         listener: 'onResults'
     };
-
     iftUti.recognizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
     });
@@ -37,6 +37,7 @@ function startSynthesizer(){
 }
 
 function onResults(response) {
+  $("#text").html('您说的是');
   console.log('isLast: ' + response);
   response.results.forEach(function(recognizerResult) {
     console.log(recognizerResult.text + "##" + recognizerResult.confidence);

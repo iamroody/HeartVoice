@@ -1,0 +1,11 @@
+#text{
+    height: 100px;
+    border: 1px solid red;
+    margin: 1%;
+    font-size: 20px;
+}
+a.talk {
+    width: 98%;
+    height: 50px;
+    margin: 1%;
+ }
