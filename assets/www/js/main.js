@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    document.addEventListener("deviceready", onDeviceReady, false);
-//    onDeviceReady();
+//    document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady();
 });
 
 function onDeviceReady(){
@@ -16,6 +16,7 @@ function startRecognizer(){
         sampleRate: 'rate8k',
         listener: 'onResults'
     };
+    $("#text").empty();
     iftUti.recognizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
     });
@@ -39,11 +40,10 @@ function startSynthesizer(){
 }
 
 function onResults(response) {
-  $("#text").html('您说的是');
   console.log('isLast: ' + response);
   response.results.forEach(function(recognizerResult) {
     console.log(recognizerResult.text + "##" + recognizerResult.confidence);
-    $("#text").append(recognizerResult.text + "##");
+    $("#text").append(recognizerResult.text);
   })
 }
 
