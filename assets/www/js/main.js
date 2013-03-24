@@ -4,7 +4,6 @@ $(document).ready(function(){
 });
 
 function startRecognizer(){
-    console.log('start------------------');
     var options = {
         appId: '51236408',
         sampleRate: 'rate8k',
