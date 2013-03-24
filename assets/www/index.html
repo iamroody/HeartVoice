@@ -31,6 +31,7 @@
         <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/iflytek.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/word_to_voice.js"></script>
     </head>
     <body>
     <div id="jQUi">
@@ -58,7 +59,8 @@
                 </div>
                 <div id="word_to_voice">
                     <div class="synthesizer">
-                        <textarea id="synthesize_content" rows="5"></textarea>
+                        <span class="remove-all-text">&#10005</span>
+                        <textarea id="synthesize_content"></textarea>
                         <button type="button" id="synthesize-button" onclick="startSynthesizer()">朗<br>读</button>
                     </div>
                 </div>

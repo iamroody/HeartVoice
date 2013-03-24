@@ -11,3 +11,13 @@
     width: 20%;
     font-size: 20px;
 }
+.synthesizer {
+    position: relative;
+}
+.remove-all-text {
+    position: absolute;
+    bottom: 5px;
+    right: 23%;
+    color: #ccc;
+    font-size: 18px;
+}
