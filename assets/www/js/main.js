@@ -20,6 +20,10 @@ function startRecognizer(){
     });
 }
 
+function setScreenOrientation(){
+//    screenOrientation.set("landscape");
+}
+
 function startSynthesizer(){
     var options = {
         appId: '51236408',

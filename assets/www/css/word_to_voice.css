@@ -1,7 +1,7 @@
-#word_to_voice {
+#main {
     padding: 0 3%;
 }
-#word_to_voice #synthesize_content {
+#main #synthesize_content {
    width: 78%;
    height: 100px;
    padding: 5px;

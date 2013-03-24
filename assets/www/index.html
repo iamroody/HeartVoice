@@ -31,29 +31,26 @@
         <script type="text/javascript" src="js/lib/jq.ui.min.js" ></script>
         <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/iflytek.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/word_to_voice.js"></script>
+        <script type="text/javascript" src="js/screen-orientation.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
     <div id="jQUi">
         <div id="content">
-            <div class="panel" selected='true' id="main" title="心声">
+            <div class="panel" selected='true' id="main" title="我写">
 
                 <header>
-                    <h1><a href="#word_to_voice">我写</a> / <a href="#voice_to_word">你说</a></h1>
+                    <h1><a href="#main">我写</a> / <a href="#voice_to_word" onclick="setScreenOrientation()">你说</a></h1>
                 </header>
 
-                <div class="categories"></div>
-            </div>
-            <div class="panel" id="word_to_voice" title="我写">
-                <header>
-                    <h1><a href="#word_to_voice">我写</a> / <a href="#voice_to_word">你说</a></h1>
-                </header>
                 <div class="synthesizer">
                     <span class="remove-all-text">&#10005</span>
                     <textarea id="synthesize_content"></textarea>
                     <button type="button" id="synthesize-button" onclick="startSynthesizer()">朗<br>读</button>
                 </div>
+
+                <div class="categories"></div>
             </div>
         </div>
         <footer></footer>
