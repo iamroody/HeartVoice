@@ -1,0 +1,3 @@
+.sentences ul > li > a:after {
+    content: '';
+}

@@ -4,6 +4,7 @@ $(document).ready(function(){
 });
 
 function onDeviceReady(){
+    $.ui.backButtonText = "取消";
     initCommonSentences();
 }
 
@@ -39,8 +40,7 @@ function onResults(response) {
   })
 }
 
-function initCommonSentences() {
-  var commonSentences = {
+var commonSentences = {
     '旅行': [
         '请问哪里有旅馆?',
         '请问我该怎么去火车站？'
@@ -48,8 +48,9 @@ function initCommonSentences() {
     '生活': [
         '附近哪里有饭馆？'
     ]
-  }
+};
 
+function initCommonSentences() {
   var categories = $('.categories');
 
   var count = 0;
@@ -58,15 +59,18 @@ function initCommonSentences() {
     count++;
     var categoryElem = $("<a href='#" + id + "' class='button'>" + category + "</a>");
     categories.append(categoryElem);
+    initCategoryPanel(category, id);
+  }
 
-    var categorySentencesElem = $("<div class='panel'><ul></ul></div>");
+}
+
+function initCategoryPanel(category, id) {
+    var categorySentencesElem = $("<div class='panel sentences'><ul></ul></div>");
     categorySentencesElem.attr('id', id);
     categorySentencesElem.attr('title', category);
 
     var sentenceElems = $.each(commonSentences[category], function(index, sentence) {
-      categorySentencesElem.find('ul').append("<li>" + sentence + "</li>");
+      categorySentencesElem.find('ul').append("<li><a href='javascript:void(0);'>" + sentence + "</a></li>");
     });
     categorySentencesElem.appendTo($('#content'));
-  }
-
 }
