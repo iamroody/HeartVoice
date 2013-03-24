@@ -32,10 +32,9 @@ function startSynthesizer(){
 }
 
 function onResults(response) {
-  $("#text").html(JSON.stringify(response));
-//  console.log('isLast: ' + response);
-//  response.results.forEach(function(recognizerResult) {
-//    console.log(recognizerResult.text + "##" + recognizerResult.confidence);
-//    $("#text").append(recognizerResult.text + "##");
-//  })
+  console.log('isLast: ' + response);
+  response.results.forEach(function(recognizerResult) {
+    console.log(recognizerResult.text + "##" + recognizerResult.confidence);
+    $("#text").append(recognizerResult.text + "##");
+  })
 }
