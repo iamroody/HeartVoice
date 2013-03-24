@@ -1,6 +1,6 @@
 $(document).ready(function(){
-//    document.addEventListener("deviceready", onDeviceReady, false);
-    onDeviceReady();
+    document.addEventListener("deviceready", onDeviceReady, false);
+//    onDeviceReady();
 });
 
 function onDeviceReady(){
@@ -17,6 +17,8 @@ function startRecognizer(){
         listener: 'onResults'
     };
     $("#text").empty();
+    $("#synthesize_content").empty();
+
     iftUti.recognizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
     });
@@ -44,6 +46,7 @@ function onResults(response) {
   response.results.forEach(function(recognizerResult) {
     console.log(recognizerResult.text + "##" + recognizerResult.confidence);
     $("#text").append(recognizerResult.text);
+    $("#synthesize_content").append(recognizerResult.text);
   })
 }
 

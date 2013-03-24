@@ -4,8 +4,10 @@
     margin: 1%;
     font-size: 20px;
 }
-a.talk {
-    width: 98%;
-    height: 50px;
+#recognizer-button {
     margin: 1%;
- }
+    height: 70px;
+    width: 98%;
+    font-size: 40px;
+    border: 2px solid gray;
+}
