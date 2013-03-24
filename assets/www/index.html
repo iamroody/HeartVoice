@@ -26,23 +26,20 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css" />
         <script type="text/javascript" src="js/lib/jq.mobi.min.js" ></script>
+        <script type="text/javascript" src="js/lib/jq.ui.min.js" ></script>
         <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/iflytek.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <div id="init_screen" class="app">
-            <h1>HeartVoice</h1>
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-            </div>
-        </div>
+    <div id="jQUi">
+        <div id="content">
+            <div class="panel" selected='true' id="main" title="心声">
 
-        <div id="main_screen" style="display: none">
-            <div data-role="header">
-                <h1>心声</h1>
-            </div>
-            <div data-role="content">
+                <header>
+                    <h1>心声</h1>
+                </header>
+
                 <div class="recognizer">
                     <input type="button" onclick="startRecognizer()" value="Recognizer" class="button">
                     <span id="text">Output will be here</span>
@@ -50,11 +47,15 @@
 
                 <div class="synthesizer">
                     <textarea id="synthesize_content"></textarea>
-                    <input type="button" onclick="startSynthesizer()" value="Synthesizer" class="button" id="synthesize-button" >
+                    <input type="button" onclick="startSynthesizer()" value="Synthesizer" class="button"
+                           id="synthesize-button">
                 </div>
 
+                <div class="categories"></div>
             </div>
-            <div data-role="footer"><h4></h4></div>
         </div>
+        <footer></footer>
+
+    </div>
     </body>
 </html>
