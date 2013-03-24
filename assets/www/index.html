@@ -40,18 +40,20 @@
             <div class="panel" selected='true' id="main" title="心声">
 
                 <header>
-                    <h1>心声</h1>
+                    <h1><a href="#word_to_voice">我写</a> / <a href="#voice_to_word">你说</a></h1>
                 </header>
 
-                <div id="word_to_voice">
-                    <div class="synthesizer">
-                        <span class="remove-all-text">&#10005</span>
-                        <textarea id="synthesize_content"></textarea>
-                        <button type="button" id="synthesize-button" onclick="startSynthesizer()">朗<br>读</button>
-                    </div>
-                </div>
-
                 <div class="categories"></div>
+            </div>
+            <div class="panel" id="word_to_voice" title="我写">
+                <header>
+                    <h1><a href="#word_to_voice">我写</a> / <a href="#voice_to_word">你说</a></h1>
+                </header>
+                <div class="synthesizer">
+                    <span class="remove-all-text">&#10005</span>
+                    <textarea id="synthesize_content"></textarea>
+                    <button type="button" id="synthesize-button" onclick="startSynthesizer()">朗<br>读</button>
+                </div>
             </div>
         </div>
         <footer></footer>

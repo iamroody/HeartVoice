@@ -77,6 +77,10 @@ h1 {
     padding:0px;
     text-align:center;
 }
+h1 a {
+    color: white;
+    text-decoration: none;
+}
 
 .status {
     background-color:#333333;
