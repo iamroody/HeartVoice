@@ -23,7 +23,7 @@ function startRecognizer(){
 function startSynthesizer(){
     var options = {
         appId: '51236408',
-        voiceName: 'vixying',
+        voiceName: 'xiaoyan',
         content: $("#synthesize_content").val()
     };
 
@@ -57,7 +57,7 @@ function initCommonSentences() {
   for (var category in commonSentences) {
     var id = 'category_' + count;
     count++;
-    var categoryElem = $("<a href='#" + id + "' class='button'>" + category + "</a>");
+    var categoryElem = $("<a href='#" + id + "' class='button' data-transition='fade'>" + category + "</a>");
     categories.append(categoryElem);
     initCategoryPanel(category, id);
   }
@@ -70,7 +70,11 @@ function initCategoryPanel(category, id) {
     categorySentencesElem.attr('title', category);
 
     var sentenceElems = $.each(commonSentences[category], function(index, sentence) {
-      categorySentencesElem.find('ul').append("<li><a href='javascript:void(0);'>" + sentence + "</a></li>");
+      categorySentencesElem.find('ul').append("<li><a href='#main' data-transition='fade'>" + sentence + "</a></li>");
     });
     categorySentencesElem.appendTo($('#content'));
+
+    categorySentencesElem.find('li a').on('click', function() {
+      $('#synthesize_content').val($(this).text());
+    });
 }

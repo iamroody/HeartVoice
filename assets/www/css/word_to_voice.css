@@ -1,9 +1,10 @@
 #word_to_voice {
-    padding: 3%;
+    padding: 0 3%;
 }
 #word_to_voice #synthesize_content {
    width: 78%;
    height: 100px;
+   padding: 5px;
 }
 #synthesize-button {
     vertical-align: top;
