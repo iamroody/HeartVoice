@@ -2,7 +2,9 @@ $(document).ready(function(){
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
     document.addEventListener("deviceready", onDeviceReady, false);
-//    onDeviceReady();
+    window.addEventListener("orientationchange", orientationChange, true);
+
+    clickWithParams();
 });
 
 function onDeviceReady() {
@@ -21,11 +23,6 @@ function startRecognizer(){
     iftUti.recognizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
     });
-}
-
-function setScreenOrientation(){
-    $("#text").text($("#synthesize_content").val());
-//    screenOrientation.set("landscape");
 }
 
 function startSynthesizer(){
@@ -50,7 +47,16 @@ function onResults(response) {
   })
 }
 
+function clickWithParams() {
+    $(".you-speak").click(function () {
+        $("#text").text($("#synthesize_content").val());
+    });
+    $(".i-write").click(function () {
+        $("#synthesize_content").val($("#text").text());
+    });
+}
+
 function orientationChange() {
     if (window.orientation == -90 || window.orientation == 90)
-        $("#text").addClass("large-font");
+        $("#main").find(".you-speak").click();
 }

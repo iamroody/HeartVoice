@@ -47,7 +47,7 @@
             </div>
             <div class="panel" id="main">
                 <header>
-                    <h1><a href="#main">我写</a> / <a href="#voice_to_word" onclick="setScreenOrientation()"  data-transition='fade'>你说</a></h1>
+                    <h1><a href="#main">我写</a> / <a href="#voice_to_word" class="you-speak" data-transition='fade'>你说</a></h1>
                 </header>
 
                 <div class="synthesizer">
@@ -60,7 +60,7 @@
             </div>
             <div class="panel" id="voice_to_word">
                 <header>
-                    <h1><a href="#main" data-transition='fade'>我写</a> / <a href="#voice_to_word"  data-transition='fade'>你说</a></h1>
+                    <h1><a href="#main" data-transition='fade' class="i-write">我写</a> / <a href="#voice_to_word" data-transition='fade'>你说</a></h1>
                 </header>
                 <div id="text" class='large-font'></div>
                 <button type="button" id="recognizer-button" onclick="startRecognizer()">开始说话</button>
