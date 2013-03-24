@@ -7,25 +7,35 @@ function onDeviceReady(){
     $("#main_screen").show();
 }
 
-function startDetect(){
-//    window.iftRecognizer.init("51236408");
-    iftRecognizer.init();
-//    window.iftRecognizer.setOption({
-//        engine: 'sms',
-//        sampleRate: 'rate8k'
-//    });
-//
-//    window.iftRecognizer.setListener("onResults");
-//
-//    window.iftRecognizer.start(function(response) {
-//      console.log("response: " + response.errorCode + ", msg: " + response.message);
-//    });
+function startRecognizer(){
+    var options = {
+        appId: '51236408',
+        sampleRate: 'rate8k',
+        listener: 'onResults'
+    };
+
+    iftUti.recognizer(options, function(response){
+        console.log("response: " + response.errorCode + ", msg: " + response.message);
+    });
+}
+
+function startSynthesizer(){
+    var options = {
+        appId: '51236408',
+        voiceName: 'vixying',
+        content: $("#synthesize_content").val()
+    };
+
+    iftUti.synthesizer(options, function(response){
+        console.log("response: " + response.errorCode + ", msg: " + response.message);
+    });
 }
 
 function onResults(response) {
-  console.log('isLast: ' + response.isLast);
-  response.results.forEach(function(recognizerResult) {
-    console.log(recognizerResult.text + "##" + recognizerResult.confidence);
-    $("#text").append(recognizerResult.text + "##");
-  })
+  $("#text").html(JSON.stringify(response));
+//  console.log('isLast: ' + response);
+//  response.results.forEach(function(recognizerResult) {
+//    console.log(recognizerResult.text + "##" + recognizerResult.confidence);
+//    $("#text").append(recognizerResult.text + "##");
+//  })
 }

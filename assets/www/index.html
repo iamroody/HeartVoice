@@ -24,6 +24,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css" />
         <script type="text/javascript" src="js/lib/jq.mobi.min.js" ></script>
         <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/iflytek.js"></script>
@@ -42,7 +43,16 @@
                 <h1>心声</h1>
             </div>
             <div data-role="content">
-                <input type="button" onclick="startDetect()" value="detect">
+                <div class="recognizer">
+                    <input type="button" onclick="startRecognizer()" value="Recognizer" class="button">
+                    <span id="text">Output will be here</span>
+                </div>
+
+                <div class="synthesizer">
+                    <textarea id="synthesize_content"></textarea>
+                    <input type="button" onclick="startSynthesizer()" value="Synthesizer" class="button" id="synthesize-button" >
+                </div>
+
             </div>
             <div data-role="footer"><h4></h4></div>
         </div>

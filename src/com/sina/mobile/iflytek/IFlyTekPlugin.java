@@ -37,7 +37,6 @@ public class IFlyTekPlugin extends CordovaPlugin {
 
 		} else if (action.equals("setListener")) {
 			this.listenerName = args.optString(0);
-
 		} else if (action.equals("start")) {
 			Runnable runnable = new Runnable() {
 				@Override

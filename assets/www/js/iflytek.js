@@ -1,19 +1,13 @@
-var IFTRecognizer = function() {
+var IFTUti = function() {
 };
 
-IFTRecognizer.prototype = {
-  init : function(appId) {
-    cordova.exec(null, null, 'IFlyTekPlugin', 'init', [appId]);
+IFTUti.prototype = {
+  recognizer : function(options, onEnd) {
+    cordova.exec(onEnd, null, 'IFlyTekPlugin', 'recognizer', [options]);
   },
-  setOption : function(options) {
-    cordova.exec(null, null, 'IFlyTekPlugin', 'setOption', [options]);     
-  },
-  setListener : function(name) {
-    cordova.exec(null, null, 'IFlyTekPlugin', 'setListener', [name]);      
-  },
-  start : function(onEnd) {
-    cordova.exec(onEnd, null, 'IFlyTekPlugin', 'start', []);
+  synthesizer : function(options, onEnd) {
+    cordova.exec(onEnd, null, 'IFlyTekPlugin', 'synthesizer', [options]);
   }
 };
 
-window.iftRecognizer = new IFTRecognizer();
+window.iftUti = new IFTUti();
