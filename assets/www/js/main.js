@@ -5,6 +5,9 @@ $(document).ready(function(){
 
 function onDeviceReady(){
     $.ui.backButtonText = "取消";
+    $.ui.showNavMenu = false;
+    $.ui.removeFooterMenu();
+
     initCommonSentences();
 }
 
