@@ -1,4 +1,5 @@
 $(document).ready(function(){
+   $.ui.backButtonText = "取消";
    initCommonSentences();
 });
 
@@ -96,7 +97,12 @@ function initCommonSentences() {
   for (var category in commonSentences) {
     var id = 'category_' + count;
     count++;
-    var categoryElem = $("<a href='#" + id + "' class='button' data-transition='fade'>" + category + "</a>");
+    var categoryElem = $("<a href='#" + id + "' class='category' data-transition='fade'>");
+    categoryElem.html('<figure></figure>')
+    var categoryImg = $('<img>').attr('src', 'img/' + count + '.png');
+    var categoryCaption = $('<figcaption>').html(category);
+    categoryElem.find('figure').append(categoryImg).append(categoryCaption);
+
     categories.append(categoryElem);
     initCategoryPanel(category, id);
   }

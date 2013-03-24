@@ -1,13 +1,7 @@
 $(document).ready(function(){
-    document.addEventListener("deviceready", onDeviceReady, false);
-//    onDeviceReady();
-});
-
-function onDeviceReady(){
-    $.ui.backButtonText = "取消";
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
-}
+});
 
 function startRecognizer(){
     console.log('start------------------');
