@@ -16,7 +16,7 @@ public class PlayListener implements SynthesizerPlayerListener {
 
     @Override
     public void onPlayBegin() {
-        
+        webView.loadUrl("javascript:onPlayBegin()");
     }
 
     @Override
@@ -41,6 +41,6 @@ public class PlayListener implements SynthesizerPlayerListener {
 
     @Override
     public void onEnd(SpeechError speechError) {
-        
+        webView.loadUrl("javascript:onPlayEnd()");
     }
 }
