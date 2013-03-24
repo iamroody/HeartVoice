@@ -4,3 +4,5 @@ gent/*
 local.properties
 out/*
 HeartVoice.iml
+.DS_Store
+*.iml
