@@ -26,6 +26,7 @@ function setScreenOrientation(){
 }
 
 function startSynthesizer(){
+    $("#synthesize-button").html("<img src='img/loading.gif' class='loading-icon'>");
     var options = {
         appId: '51236408',
         voiceName: 'xiaoyan',

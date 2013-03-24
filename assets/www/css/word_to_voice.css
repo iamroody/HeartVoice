@@ -10,7 +10,7 @@
     vertical-align: top;
     height: 100px;
     width: 20%;
-    font-size: 20px;
+    font-size: 16px;
     border: 2px solid gray;
 }
 .synthesizer {
@@ -22,4 +22,11 @@
     right: 23%;
     color: #ccc;
     font-size: 18px;
+}
+.loading-icon {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 35%;
+    right: 8%;
 }
