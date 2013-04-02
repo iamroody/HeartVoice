@@ -2,6 +2,9 @@ package com.HeartVoice;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.hardware.SensorManager;
+import android.util.Log;
+import android.view.OrientationEventListener;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.apache.cordova.api.PluginResult;
@@ -53,9 +56,14 @@ public class ScreenOrientation extends CordovaPlugin {
        			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
        		}
        		return true;
+       	} else if (action.equals("detect")) {
+            OrientationEventListener myOrientationEventListener;
+            myOrientationEventListener = new OrientationListener(cordova.getActivity(), SensorManager.SENSOR_DELAY_NORMAL, webView, callbackContext);
+
+            return true;
        	} else {
-       		return false;
-       	}
+            return false;
+        }
     }
 
 }
