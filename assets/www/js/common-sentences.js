@@ -95,13 +95,13 @@ function initCommonSentences() {
 
   var count = 0;
   for (var category in commonSentences) {
-    var id = 'category_' + count;
     count++;
-    var categoryElem = $("<a href='#" + id + "' class='category' data-transition='fade'>");
-    categoryElem.html('<figure></figure>')
-    var categoryImg = $('<img>').attr('src', 'img/' + count + '.png');
+    var id = 'category_' + count;
+    var categoryElem = $("<figure class='category'>");
+    var categoryImgLink = $("<a href='#" + id + "' data-transition='fade'>");
+    categoryImgLink.html("<i class='category-" + count + "'>");
     var categoryCaption = $('<figcaption>').html(category);
-    categoryElem.find('figure').append(categoryImg).append(categoryCaption);
+    categoryElem.append(categoryImgLink).append(categoryCaption);
 
     categories.append(categoryElem);
     initCategoryPanel(category, id);

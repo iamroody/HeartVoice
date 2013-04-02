@@ -26,18 +26,75 @@
     background-color: #fcc51c;
 }
 
+.categories {
+    box-shadow: inset 0 2px 3px #FFF;
+}
+
 .category {
-	color:#FFF;
+	color:#59677A;
 	display: inline-block;
-	font-size:14px;
+	font-size: 24px;
 	text-decoration:none;
 	text-align:center;
-	margin-top: 10px;
+	margin-top: 20px;
 	width: 25%;
 }
 
-.category img {
-    width: 48px;
-    height: 48px;
-    background-color: #FFF;
+.category a {
+    width: 108px;
+    height: 108px;
+    display: inline-block;
+    background: url('../img/btn_dot.png') no-repeat;
+}
+
+.category a[selected], .category a:active {
+    background-position: -109px 0;
+}
+
+.category figcaption {
+    margin-top: 10px;
+}
+
+.category i {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background: url('../img/icon_8.png') no-repeat 0 0;
+    margin-top: 4px;
+}
+
+.category i[selected], .category i:active {
+    background-position-y: -101px;
+}
+
+.category .category-1 {
+    background-position-x: 0;
+}
+
+.category .category-2 {
+    background-position-x: -101px;
+}
+
+.category .category-3 {
+    background-position-x: -201px;
+}
+
+.category .category-4 {
+    background-position-x: -301px;
+}
+
+.category .category-5 {
+    background-position-x: -401px;
+}
+
+.category .category-6 {
+    background-position-x: -501px;
+}
+
+.category .category-7 {
+    background-position-x: -601px;
+}
+
+.category .category-8 {
+    background-position-x: -701px;
 }
