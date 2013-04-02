@@ -17,7 +17,7 @@
     padding-left: 25px;
 }
 
-.sentences ul > li > a:first-child {
+.sentences ul > li > a:first {
     border-top: none;
 }
 

@@ -130,3 +130,23 @@ h1 a {
     height: 68px;
     font-size: 30px;
 }
+
+#backButton {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    max-width: none;
+    text-shadow: none;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: normal;
+    background: url('../img/btn_back.png') no-repeat;
+    padding: 0;
+    margin: 0;
+    top: 12px;
+    left: 14px;
+}
+
+#backButton[selected], #backButton:active {
+    background-position: 0 -51px;
+}

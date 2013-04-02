@@ -1,5 +1,5 @@
 $(document).ready(function(){
-   $.ui.backButtonText = "取消";
+   $.ui.backButtonText = "返回";
    initCommonSentences();
 });
 
