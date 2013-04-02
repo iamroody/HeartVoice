@@ -48,7 +48,7 @@
 }
 
 .category a[selected], .category a:active {
-    background-position: -109px 0;
+    background-position: -108px 0;
 }
 
 .category figcaption {
@@ -64,7 +64,7 @@
 }
 
 .category i[selected], .category i:active {
-    background-position-y: -101px;
+    background-position-y: -100px;
 }
 
 .category .category-1 {
@@ -72,29 +72,29 @@
 }
 
 .category .category-2 {
-    background-position-x: -101px;
+    background-position-x: -100px;
 }
 
 .category .category-3 {
-    background-position-x: -201px;
+    background-position-x: -200px;
 }
 
 .category .category-4 {
-    background-position-x: -301px;
+    background-position-x: -300px;
 }
 
 .category .category-5 {
-    background-position-x: -401px;
+    background-position-x: -400px;
 }
 
 .category .category-6 {
-    background-position-x: -501px;
+    background-position-x: -500px;
 }
 
 .category .category-7 {
-    background-position-x: -601px;
+    background-position-x: -600px;
 }
 
 .category .category-8 {
-    background-position-x: -701px;
+    background-position-x: -700px;
 }
