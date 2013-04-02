@@ -17,6 +17,10 @@
     padding-left: 25px;
 }
 
+.sentences ul > li > a:first-child {
+    border-top: none;
+}
+
 .sentences ul > li > a[selected], .sentences ul > li > a:active {
     color: #333 !important;
     background-color: #fcc51c;
