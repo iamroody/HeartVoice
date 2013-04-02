@@ -154,3 +154,35 @@ h1 a {
 .panel {
     background: #EAEAEB;
 }
+
+a.nav {
+    display: inline-block;
+    width:50%;
+    margin-right: 0;
+}
+
+a.nav.left{
+    width: 48%;
+}
+a.nav.left.active .head-splitter{
+    top: 16px;
+    float: right;
+}
+
+a.nav.right.active .head-splitter{
+    top: 16px;
+    float: left;
+}
+
+a.active {
+    border-bottom: 5px solid #fcc51c;
+    top: -4px;
+}
+
+a.nav span{
+    top: 4px;
+    position: absolute;
+}
+a.active.nav span{
+    top: 8px;
+}
