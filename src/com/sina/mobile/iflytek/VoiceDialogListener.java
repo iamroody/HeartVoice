@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class VoiceDialogListener implements RecognizerDialogListener {
     private CordovaWebView webView;
     private CallbackContext callbackContext;
-    private static final String TAG = IFlyTekPlugin.class.getSimpleName();
+    private static final String TAG = IFlyTekNewPlugin.class.getSimpleName();
 
 
     public VoiceDialogListener(CordovaWebView webView, CallbackContext callbackContext) {

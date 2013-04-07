@@ -2,16 +2,11 @@ $(document).ready(function(){
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
     document.addEventListener("deviceready", onDeviceReady, false);
-    window.addEventListener("orientationchange", orientationChange, true);
-
-    clickWithParams();
 });
 
 function onDeviceReady() {
     $.ui.loadContent("#main",false,false,"fade");
-    screenOrientation.detect(function(response){
-        console.log("sensor!");
-    });
+    screenOrientation.detect();
 }
 
 function startRecognizer(){
@@ -51,15 +46,20 @@ function onResults(response) {
 }
 
 function clickWithParams() {
-    $(".you-speak").click(function () {
+    $("#header .you-speak").bind("click",function () {
         $("#text").text($("#synthesize_content").val());
     });
-    $(".i-write").click(function () {
+    $("#header .i-write").bind("click", function () {
         $("#synthesize_content").val($("#text").text());
     });
 }
 
-function orientationChange() {
-    if (window.orientation == -90 || window.orientation == 90)
-        $("#main").find(".you-speak").click();
+function orientationChanged(orientation) {
+    if (orientation == 'Landscape' && $("#header .i-write.active").length == 1) {
+        $("#header .you-speak").click();
+        screenOrientation.set("sensorLandscape");
+    } else if (orientation == 'Portrait' && $("#header .you-speak.active").length == 1) {
+        $("#header .i-write").click();
+        screenOrientation.set("portrait");
+    }
 }

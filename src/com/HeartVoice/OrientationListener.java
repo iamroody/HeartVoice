@@ -20,12 +20,12 @@ public class OrientationListener extends OrientationEventListener {
 
     @Override
     public void onOrientationChanged(int angle) {
-        if (isChangedOrientation(angle, 90, 270, "Portrait")){
+        if (isChangedOrientation(angle, 90, 270, "Landscape")){
             Log.d("Orientation Changed:", "From Portrait to Landscape");
-            webView.loadUrl("javascript:alert('From Portrait to Landscape')");
+            webView.loadUrl("javascript:orientationChanged('Landscape')");
         } else if(isChangedOrientation(angle, 0, 360, "Portrait")) {
             Log.d("Orientation Changed:", "From Landscape to Portrait");
-            webView.loadUrl("javascript:alert('From Landscape to Portrait')");
+            webView.loadUrl("javascript:orientationChanged('Portrait')");
         }
     }
 

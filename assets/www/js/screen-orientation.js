@@ -1,11 +1,11 @@
 var screenOrientation = function() {};
 
 screenOrientation.prototype = {
-    set : function(str, success, fail) {
-        cordova.exec(success, fail, 'ScreenOrientation', "set", [str]);
+    set : function(str) {
+        cordova.exec(function(winParam){}, function(error){alert(error);}, 'ScreenOrientation', "set", [str]);
     },
-    detect : function(success) {
-        cordova.exec(success, null, 'ScreenOrientation', "detect", []);
+    detect : function() {
+        cordova.exec(function(winParam){}, function(error){alert(error);}, 'ScreenOrientation', "detect", []);
     }
 };
 
