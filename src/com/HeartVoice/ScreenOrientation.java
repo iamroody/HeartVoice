@@ -2,6 +2,9 @@ package com.HeartVoice;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.hardware.SensorManager;
+import android.util.Log;
+import android.view.OrientationEventListener;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.apache.cordova.api.PluginResult;
@@ -25,37 +28,46 @@ public class ScreenOrientation extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("set")) {
-       		String orientation = args.optString(0);
-       		Activity activity = cordova.getActivity();
-       		if (orientation.equals(UNSPECIFIED)) {
-       		    activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-       		} else if (orientation.equals(LANDSCAPE)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-       		} else if (orientation.equals(PORTRAIT)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-       		} else if (orientation.equals(USER)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-       		} else if (orientation.equals(BEHIND)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
-       		} else if (orientation.equals(SENSOR)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-       		} else if (orientation.equals(NOSENSOR)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-       		} else if (orientation.equals(SENSOR_LANDSCAPE)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-       		} else if (orientation.equals(SENSOR_PORTRAIT)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-       	    } else if (orientation.equals(REVERSE_LANDSCAPE)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-       		} else if (orientation.equals(REVERSE_PORTRAIT)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
-       		} else if (orientation.equals(FULL_SENSOR)) {
-       			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
-       		}
-       		return true;
-       	} else {
-       		return false;
-       	}
+            String orientation = args.optString(0);
+            Activity activity = cordova.getActivity();
+            if (orientation.equals(UNSPECIFIED)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+            } else if (orientation.equals(LANDSCAPE)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            } else if (orientation.equals(PORTRAIT)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            } else if (orientation.equals(USER)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+            } else if (orientation.equals(BEHIND)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_BEHIND);
+            } else if (orientation.equals(SENSOR)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            } else if (orientation.equals(NOSENSOR)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+            } else if (orientation.equals(SENSOR_LANDSCAPE)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+            } else if (orientation.equals(SENSOR_PORTRAIT)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+            } else if (orientation.equals(REVERSE_LANDSCAPE)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+            } else if (orientation.equals(REVERSE_PORTRAIT)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+            } else if (orientation.equals(FULL_SENSOR)) {
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+            }
+            return true;
+        } else if (action.equals("detect")) {
+            OrientationEventListener myOrientationEventListener;
+            myOrientationEventListener = new OrientationListener(cordova.getActivity(), SensorManager.SENSOR_DELAY_NORMAL, webView, callbackContext);
+            if (myOrientationEventListener.canDetectOrientation()) {
+                myOrientationEventListener.enable();
+            } else {
+                webView.loadUrl("javascript:alert('not support sensor detect')");
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

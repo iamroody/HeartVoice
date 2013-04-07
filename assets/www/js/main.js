@@ -9,6 +9,9 @@ $(document).ready(function(){
 
 function onDeviceReady() {
     $.ui.loadContent("#main",false,false,"fade");
+    screenOrientation.detect(function(response){
+        console.log("sensor!");
+    });
 }
 
 function startRecognizer(){
