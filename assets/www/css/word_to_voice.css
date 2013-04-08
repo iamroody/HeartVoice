@@ -1,20 +1,27 @@
 
+#main .synthesize-wrap {
+    position: relative;
+    width: 100%;
+    padding-right: 114px;
+}
 #main #synthesize_content {
-   width: 340px;
-   height: 200px;
+   width: 100%;
+   height: 280px;
    padding: 5px;
    border-radius: 3px;
    border-color: #bbb;
 }
 #synthesize-button {
-    margin-left: 5px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
     vertical-align: top;
-    height: 200px;
-    width: 100px;
-    background: url("../img/1.png") no-repeat;
+    height: 280px;
+    width: 108px;
+    background: url("../img/btn_speak.png") no-repeat 0px -4px;
 }
 #synthesize-button:hover {
-    background-position: 10px 10px;
+    background-position: -206px -4px;
 }
 
 .synthesizer {

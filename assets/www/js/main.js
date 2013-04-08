@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    onDeviceReady();
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -7,6 +8,10 @@ $(document).ready(function(){
 function onDeviceReady() {
     $.ui.loadContent("#main",false,false,"fade");
     screenOrientation.detect();
+}
+
+function activePlayButton(){
+
 }
 
 function startRecognizer(){
@@ -24,7 +29,7 @@ function startRecognizer(){
 }
 
 function startSynthesizer(){
-    $("#synthesize-button").html("<img src='img/loading.gif' class='loading-icon'>");
+    $("#synthesize-button").css("background-position", "-309px -4px");
     var options = {
         appId: '51236408',
         voiceName: 'xiaoyan',
