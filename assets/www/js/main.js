@@ -3,7 +3,6 @@ $(document).ready(function(){
     $.ui.removeFooterMenu();
 
     document.addEventListener("deviceready", onDeviceReady, false);
-    onDeviceReady();
 });
 
 function onDeviceReady() {
@@ -51,15 +50,6 @@ function onResults(response) {
   })
 }
 
-function clickWithParams() {
-    $("#header .you-speak").bind("click",function () {
-        $("#text").text($("#synthesize_content").val());
-    });
-    $("#header .i-write").bind("click", function () {
-        $("#synthesize_content").val($("#text").text());
-    });
-}
-
 function orientationChanged(orientation) {
     if (orientation == 'Landscape' && $("#header .i-write.active").length == 1) {
         $("#header .you-speak").click();
@@ -68,4 +58,12 @@ function orientationChanged(orientation) {
         $("#header .i-write").click();
         screenOrientation.set("portrait");
     }
+}
+
+function syncToText(){
+    $("#synthesize_content").val($("#text").text());
+}
+
+function syncToVoice(){
+    $("#text").text($("#synthesize_content").val());
 }

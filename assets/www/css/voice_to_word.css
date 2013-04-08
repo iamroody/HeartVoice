@@ -22,3 +22,7 @@
 #recognizer-button {
     background: url('../img/btn_say.png') no-repeat 0 0;
 }
+
+#text {
+ color: black;
+}
