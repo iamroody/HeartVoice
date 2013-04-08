@@ -110,14 +110,12 @@ function initCommonSentences() {
 }
 
 function initCategoryPanel(category, id) {
-    var categorySentencesElem = $("<div class='panel sentences'><ul></ul></div>");
-    categorySentencesElem.attr('id', id);
-    categorySentencesElem.attr('title', category);
+    $.ui.addContentDiv(id, "<ul class='sentences'></ul>", category);
 
+    var categorySentencesElem = $("#" + id).find('ul');
     var sentenceElems = $.each(commonSentences[category], function(index, sentence) {
-      categorySentencesElem.find('ul').append("<li><a href='#main' data-transition='fade'>" + sentence + "</a></li>");
+      categorySentencesElem.append("<li><a href='#main' data-transition='fade'>" + sentence + "</a></li>");
     });
-    categorySentencesElem.appendTo($('#content'));
 
     categorySentencesElem.find('li a').on('click', function() {
       $('#synthesize_content').val($(this).text());

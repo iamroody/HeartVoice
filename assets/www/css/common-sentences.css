@@ -1,12 +1,12 @@
-.sentences ul > li > a:after {
+.sentences > li > a:after {
     content: '';
 }
 
-.sentences ul > li {
+.sentences > li {
     height: 84px;
 }
 
-.sentences ul > li > a {
+.sentences > li > a {
     background-color: #DBEBF3;
     font-size: 28px;
     color: #333;
@@ -17,11 +17,11 @@
     padding-left: 25px;
 }
 
-.sentences ul > li > a:first {
+.sentences > li > a:first {
     border-top: none;
 }
 
-.sentences ul > li > a[selected], .sentences ul > li > a:active {
+.sentences > li > a[selected], .sentences > li > a:active {
     color: #333 !important;
     background-color: #fcc51c;
 }

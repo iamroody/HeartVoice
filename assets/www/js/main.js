@@ -1,8 +1,9 @@
 $(document).ready(function(){
-    onDeviceReady();
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
+
     document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady();
 });
 
 function onDeviceReady() {
