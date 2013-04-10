@@ -11,7 +11,15 @@ function onDeviceReady() {
 }
 
 function activePlayButton(){
-
+    target = $("#synthesize-button")
+    if($("#synthesize_content").val() != ''){
+        target.removeAttr('disabled');
+        target.find("img").hide();
+        target.css("background-position", "-102px -4px");
+    }else{
+        target.css("background-position", "2px -4px");
+        target.attr("disabled","disabled");
+    }
 }
 
 function startRecognizer(){
@@ -29,7 +37,8 @@ function startRecognizer(){
 }
 
 function startSynthesizer(){
-    $("#synthesize-button").css("background-position", "-309px -4px");
+    $("#synthesize-button").css("background-position", "-308px -4px");
+    $(".loading-image").show();
     var options = {
         appId: '51236408',
         voiceName: 'xiaoyan',

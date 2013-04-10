@@ -5,9 +5,12 @@ $(document).ready(function(){
 });
 
 function onPlayBegin(){
-//    $("#synthesize-button").html("正<br>在<br>朗<br>读<br>...")
-    $("#synthesize-button").css("background-position", "-412px -4px");
+    $(".loading-image").hide();
+    $(".voice-gif").show();
+    $("#synthesize-button").css("background-position", "-410px -4px");
+
 }
 function onPlayEnd(){
-    $("#synthesize-button").css("background-position", "0px -4px");
+    $(".voice-gif").hide();
+    $("#synthesize-button").css("background-position", "2px -4px");
 }
