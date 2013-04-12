@@ -1,4 +1,4 @@
-package com.sina.mobile.iflytek;
+package com.plugin.iflytek;
 
 import android.util.Log;
 import com.iflytek.speech.RecognizerResult;

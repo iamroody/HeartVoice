@@ -1,4 +1,4 @@
-package com.HeartVoice;
+package com.plugin.screen;
 
 import android.content.Context;
 import android.util.Log;
@@ -20,22 +20,22 @@ public class OrientationListener extends OrientationEventListener {
 
     @Override
     public void onOrientationChanged(int angle) {
-        if (isChangedOrientation(angle, 90, 270, "Landscape")){
+        if (isChangedOrientation(angle, 90, 270, "Landscape")) {
             Log.d("Orientation Changed:", "From Portrait to Landscape");
             webView.loadUrl("javascript:orientationChanged('Landscape')");
-        } else if(isChangedOrientation(angle, 0, 360, "Portrait")) {
+        } else if (isChangedOrientation(angle, 0, 360, "Portrait")) {
             Log.d("Orientation Changed:", "From Landscape to Portrait");
             webView.loadUrl("javascript:orientationChanged('Portrait')");
         }
     }
 
     private boolean isChangedOrientation(int angle, int first, int last, String orientation) {
-       if (angle >= (first - THRESHOLD) && angle <= (first + THRESHOLD) || angle >= (last - THRESHOLD) && angle <= (last + THRESHOLD)) {
-          if (!currentOrientation.equals(orientation)){
-              currentOrientation = orientation;
-              return true;
-          }
-       }
-       return false;
+        if (angle >= (first - THRESHOLD) && angle <= (first + THRESHOLD) || angle >= (last - THRESHOLD) && angle <= (last + THRESHOLD)) {
+            if (!currentOrientation.equals(orientation)) {
+                currentOrientation = orientation;
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,4 +1,4 @@
-package com.sina.mobile.iflytek;
+package com.plugin.iflytek;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;

@@ -1,4 +1,4 @@
-package com.HeartVoice;
+package com.plugin.screen;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;

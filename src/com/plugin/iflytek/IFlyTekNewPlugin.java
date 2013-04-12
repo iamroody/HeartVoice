@@ -1,10 +1,7 @@
-package com.sina.mobile.iflytek;
+package com.plugin.iflytek;
 
-import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
-import com.iflytek.speech.SpeechError;
 import com.iflytek.speech.SynthesizerPlayer;
-import com.iflytek.speech.SynthesizerPlayerListener;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.json.JSONArray;

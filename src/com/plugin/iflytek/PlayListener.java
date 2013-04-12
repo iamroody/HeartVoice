@@ -1,4 +1,4 @@
-package com.sina.mobile.iflytek;
+package com.plugin.iflytek;
 
 import com.iflytek.speech.SpeechError;
 import com.iflytek.speech.SynthesizerPlayerListener;
