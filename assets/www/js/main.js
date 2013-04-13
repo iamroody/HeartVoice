@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
-
     document.addEventListener("deviceready", onDeviceReady, false);
 });
 
