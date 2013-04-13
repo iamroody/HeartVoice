@@ -6,6 +6,9 @@ screenOrientation.prototype = {
     },
     detect : function() {
         cordova.exec(function(winParam){}, function(error){alert(error);}, 'ScreenOrientation', "detect", []);
+    },
+    fullScreen : function(str) {
+        cordova.exec(function(winParam){}, function(error){alert(error);}, 'ScreenOrientation', "fullScreen", [str]);
     }
 };
 

@@ -5,6 +5,8 @@ import android.content.pm.ActivityInfo;
 import android.hardware.SensorManager;
 import android.util.Log;
 import android.view.OrientationEventListener;
+import android.view.Window;
+import android.view.WindowManager;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.apache.cordova.api.PluginResult;
@@ -24,12 +26,13 @@ public class ScreenOrientation extends CordovaPlugin {
     private static final String REVERSE_LANDSCAPE = "reverseLandscape";
     private static final String REVERSE_PORTRAIT = "reversePortrait";
     private static final String FULL_SENSOR = "fullSensor";
+    public static final String TAG = "ScreenOrientation";
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+        Activity activity = cordova.getActivity();
         if (action.equals("set")) {
             String orientation = args.optString(0);
-            Activity activity = cordova.getActivity();
             if (orientation.equals(UNSPECIFIED)) {
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
             } else if (orientation.equals(LANDSCAPE)) {
@@ -58,16 +61,24 @@ public class ScreenOrientation extends CordovaPlugin {
             return true;
         } else if (action.equals("detect")) {
             OrientationEventListener myOrientationEventListener;
-            myOrientationEventListener = new OrientationListener(cordova.getActivity(), SensorManager.SENSOR_DELAY_NORMAL, webView, callbackContext);
+            myOrientationEventListener = new OrientationListener(activity, SensorManager.SENSOR_DELAY_NORMAL, webView, callbackContext);
             if (myOrientationEventListener.canDetectOrientation()) {
                 myOrientationEventListener.enable();
             } else {
                 webView.loadUrl("javascript:alert('not support sensor detect')");
             }
             return true;
-        } else {
-            return false;
+        } else if (action.equals("fullScreen")) {
+            String operation = args.optString(0);
+            Window window = activity.getWindow();
+            if (operation.equals("enter")) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            }
+            return true;
         }
+        return false;
     }
 
 }
