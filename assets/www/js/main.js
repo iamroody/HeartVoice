@@ -22,6 +22,7 @@ function activePlayButton(){
 }
 
 function startRecognizer(){
+    if (checkConnection() == false) return;
     var options = {
         appId: '51236408',
         sampleRate: 'rate8k',
@@ -36,6 +37,7 @@ function startRecognizer(){
 }
 
 function startSynthesizer(){
+    if (checkConnection() == false) return;
     $("#synthesize-button").css("background-position", "-308px -4px");
     $(".loading-image").show();
     var options = {
@@ -56,6 +58,7 @@ function onResults(response) {
     $("#text").append(recognizerResult.text);
     $("#synthesize_content").append(recognizerResult.text);
   })
+  navigator.notification.vibrate(500);
 }
 
 function orientationChanged(orientation) {
@@ -74,4 +77,12 @@ function syncToText(){
 
 function syncToVoice(){
     $("#text").text($("#synthesize_content").val());
+}
+
+function checkConnection() {
+    if(navigator.network.connection.type == Connection.NONE) {
+        alert("请开启网络链接！");
+        return false;
+    }
+    return true
 }
