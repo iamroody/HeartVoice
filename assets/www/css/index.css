@@ -195,3 +195,7 @@ a.nav span{
 a.active.nav span{
     top: 8px;
 }
+
+#jQUi {
+    position: static;
+}
