@@ -46,7 +46,7 @@
 <body>
 <div id="jQUi">
     <div id="content">
-        <div class="panel" id="main">
+        <div class="panel" id="main" style="overflow:hidden">
             <header>
                 <a class="nav left active i-write" href="#main"><span>我写</span></a>
                 <img class="head-splitter" src="img/head_splitter.png">
@@ -76,7 +76,7 @@
                 <span>意见反馈</span>
             </div>
         </div>
-        <div class="panel" id="voice_to_word">
+        <div class="panel" id="voice_to_word" style="overflow:hidden">
             <header>
                 <a class="i-write nav left" href="#main" data-transition='fade'
                    onclick="syncToText()"><span>我写</span></a>
@@ -91,13 +91,14 @@
     </div>
 </div>
 
-<div id="carousel" class="hide">
-    <div> <img src="img/tutorial1.png"> </div>
-    <div> <img src="img/tutorial2.png"> </div>
-    <div> <img src="img/tutorial3.png"> </div>
-    <div> <img src="img/tutorial4.png"> </div>
+<div id="carousel_container" class="hide">
+    <div id="carousel">
+        <div><img src="img/tutorial1.png"></div>
+        <div><img src="img/tutorial2.png"></div>
+        <div><img src="img/tutorial3.png"></div>
+        <div><img src="img/tutorial4.png"></div>
+    </div>
+    <div id="carousel_dots"></div>
 </div>
-<div id="carousel_dots" class="hide"></div>
-
 </body>
 </html>

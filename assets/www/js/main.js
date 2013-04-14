@@ -1,18 +1,20 @@
 $(document).ready(function(){
-    showIntro();
-    initialApp();
-//    document.addEventListener("deviceready", onDeviceReady, false);
-    onDeviceReady();
+    document.addEventListener("deviceready", onDeviceReady, false);
 });
 
+function onDeviceReady() {
+    showIntro();
+    initialApp();
+
+    navigator.splashscreen.hide();
+    screenOrientation.detect();
+}
+
 function initialApp() {
-    $.ui.showNavMenu = false;
     $.ui.removeFooterMenu();
+    $.ui.showNavMenu = false;
     $.ui.backButtonText = "返回";
-
     initCommonSentences();
-
-    $("#main").removeAttr("js-scrolling");
 
     $(".remove-all-text").on("click", function(){
        $("#synthesize_content").val('');
@@ -22,10 +24,6 @@ function initialApp() {
     $(".feedback").on("click", function(){
         window.plugins.childBrowser.showWebPage("https://jinshuju.net/f/tCdN5E");
     })
-}
-
-function onDeviceReady() {
-    screenOrientation.detect();
 }
 
 function startRecognizer(){

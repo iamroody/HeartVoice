@@ -8,8 +8,9 @@
     margin:auto;
     display : table;
     clear: both;
-    position: relative;
-    top: -50px;
+    position: absolute;
+    top: 710px;
+    left: 140px;
 }
 
 .carousel_paging2 {

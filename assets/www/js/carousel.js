@@ -8,9 +8,8 @@ function initCarousel() {
         pagingFunction: function(index) {
             if(index == 3) {
                 setTimeout(function(){
-                    $("#jQUi").show();
-                    $("#carousel").empty();
-                    $("#carousel_dots").empty();
+                   $("#jQUi").show();
+                   $("#carousel_container").remove();
                 }, 2000)
             }
         }
@@ -18,12 +17,10 @@ function initCarousel() {
 }
 
 function showIntro() {
-    if (window.localStorage.getItem("logged") == "yes") {
-       console.log("enter this");
-       $("#carousel").show();
-       $("#carousel_dots").show();
+    if (window.localStorage.getItem("logged") != "yes") {
+       $("#carousel_container").show();
        $("#jQUi").hide();
-       initCarousel();
        window.localStorage.setItem("logged", "yes");
+       initCarousel();
     }
 }
