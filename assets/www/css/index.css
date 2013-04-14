@@ -160,6 +160,7 @@ a.active.nav span{
    bottom: 0px;
    width: 100%;
    text-align: center;
+   opacity: 0.7;
 }
 
 .feedback span {
