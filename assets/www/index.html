@@ -21,8 +21,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport"
-          content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi"/>
 
     <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
@@ -30,15 +29,17 @@
     <link rel="stylesheet" type="text/css" href="css/voice-to-word.css"/>
     <link rel="stylesheet" type="text/css" href="css/common-sentences.css"/>
     <link rel="stylesheet" type="text/css" href="css/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="css/carousel.css"/>
 
     <script type="text/javascript" src="js/lib/jq.mobi.min.js"></script>
     <script type="text/javascript" src="js/lib/jq.ui.min.js"></script>
+    <script type="text/javascript" src="js/lib/jq.carousel.js"></script>
     <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
     <script type="text/javascript" src="js/plugin/iflytek.js"></script>
     <script type="text/javascript" src="js/plugin/screen-orientation.js"></script>
     <script type="text/javascript" src="js/plugin/childbrowser.js"></script>
-    <script type="text/javascript" src="js/word-to-voice.js"></script>
     <script type="text/javascript" src="js/common-sentences.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </head>
@@ -89,5 +90,14 @@
         </div>
     </div>
 </div>
+
+<div id="carousel" class="hide">
+    <div style="background: yellow;"> hello </div>
+    <div style="background: green;"> world </div>
+    <div style="background: blue;"> zhen </div>
+    <div style="background: pink;"> de </div>
+</div>
+<div id="carousel_dots" class="hide"></div>
+
 </body>
 </html>

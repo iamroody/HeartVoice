@@ -1,7 +1,8 @@
 $(document).ready(function(){
+    showIntro();
     initialApp();
-    document.addEventListener("deviceready", onDeviceReady, false);
-//    onDeviceReady();
+//    document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady();
 });
 
 function initialApp() {
