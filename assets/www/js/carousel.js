@@ -4,7 +4,16 @@ function initCarousel() {
         pagingCssName: "carousel_paging2",
         pagingCssNameSelected: "carousel_paging2_selected",
         preventDefaults:false,
-        glue:5
+        glue:5,
+        pagingFunction: function(index) {
+            if(index == 3) {
+                setTimeout(function(){
+                    $("#jQUi").show();
+                    $("#carousel").empty();
+                    $("#carousel_dots").empty();
+                }, 2000)
+            }
+        }
     });
 }
 
