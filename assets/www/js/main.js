@@ -17,7 +17,7 @@ function initialApp() {
     });
 
     $(".feedback").on("click", function(){
-        window.plugins.childBrowser.showWebPage("https://jinshuju.net/f/xiQNc5");
+        window.plugins.childBrowser.showWebPage("https://jinshuju.net/f/tCdN5E");
     })
 }
 
