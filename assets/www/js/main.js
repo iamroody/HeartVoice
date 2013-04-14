@@ -1,6 +1,7 @@
 $(document).ready(function(){
     initialApp();
     document.addEventListener("deviceready", onDeviceReady, false);
+//    onDeviceReady();
 });
 
 function initialApp() {
@@ -14,10 +15,13 @@ function initialApp() {
        $("#synthesize_content").val('');
        $("#text").text('');
     });
+
+    $(".feedback").on("click", function(){
+        window.plugins.childBrowser.showWebPage("https://jinshuju.net/f/xiQNc5");
+    })
 }
 
 function onDeviceReady() {
-    $.ui.loadContent("#main",false,false,"fade");
     screenOrientation.detect();
 }
 

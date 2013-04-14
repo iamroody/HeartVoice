@@ -57,6 +57,7 @@
     <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser"/>
     <plugin name="IFlyTekPlugin" value="com.plugin.iflytek.IFlyTekNewPlugin"/>
     <plugin name="ScreenOrientation" value="com.plugin.screen.ScreenOrientation"/>
+    <plugin name="ChildBrowser" value="com.plugin.childBrowser.ChildBrowser"/>
 </plugins>
 </cordova>
 
