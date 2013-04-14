@@ -201,11 +201,16 @@ a.active.nav span{
 }
 
 .feedback {
-   position: fixed;
+   position: absolute;
    z-index: 1000000;
-   top: 360px;
-   background-color: #ed8352;
-   right: 0px;
+   background-color: #566376;
    padding: 2px 10px;
-   font-size:16px;
+   font-size: 18px;
+   bottom: 0px;
+   width: 100%;
+   text-align: center;
+}
+
+.feedback span {
+    line-height: 50px;
 }

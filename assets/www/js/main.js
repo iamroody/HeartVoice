@@ -1,6 +1,7 @@
 $(document).ready(function(){
     initialApp();
     document.addEventListener("deviceready", onDeviceReady, false);
+//    onDeviceReady();
 });
 
 function initialApp() {
@@ -9,6 +10,8 @@ function initialApp() {
     $.ui.backButtonText = "返回";
 
     initCommonSentences();
+
+    $("#main").removeAttr("js-scrolling");
 
     $(".remove-all-text").on("click", function(){
        $("#synthesize_content").val('');
@@ -42,7 +45,7 @@ function startRecognizer(){
 function startSynthesizer(){
     if ($("#synthesize_content").val() == '') return;
     if (checkConnection() == false) return;
-    $(".circularG").show();
+    $("#circularG").show();
     var options = {
         appId: '51236408',
         voiceName: 'xiaoyan',
@@ -51,7 +54,12 @@ function startSynthesizer(){
 
     iftUti.synthesizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
+        navigator.notification.vibrate(500);
     });
+}
+
+function onPlayEnd(){
+    $("#circularG").hide();
 }
 
 function onResults(response) {
@@ -79,7 +87,7 @@ function syncToText(){
 }
 
 function syncToVoice(){
-    screenOrientation.set("landscape");
+    screenOrientation.set("sensorLandscape");
 
     $("#text").text($("#synthesize_content").val());
 }
@@ -90,9 +98,5 @@ function checkConnection() {
         return false;
     }
     return true
-}
-
-function onPlayEnd(){
-    $(".circularG").hide();
 }
 
