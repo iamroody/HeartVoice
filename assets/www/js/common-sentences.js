@@ -1,8 +1,3 @@
-$(document).ready(function(){
-   $.ui.backButtonText = "返回";
-   initCommonSentences();
-});
-
 var commonSentences = {
     '基本': [
         '不好意思，请问',

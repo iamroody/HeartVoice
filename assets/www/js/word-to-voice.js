@@ -1,9 +1,3 @@
-$(document).ready(function(){
-    $(".remove-all-text").click(function(){
-        $("#synthesize_content").val('');
-    });
-});
-
 function onPlayBegin(){
     $(".loading-image").hide();
     $(".voice-gif").show();

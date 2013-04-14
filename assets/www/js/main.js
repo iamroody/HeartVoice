@@ -1,8 +1,20 @@
 $(document).ready(function(){
-    $.ui.showNavMenu = false;
-    $.ui.removeFooterMenu();
+    initialApp();
     document.addEventListener("deviceready", onDeviceReady, false);
 });
+
+function initialApp() {
+    $.ui.showNavMenu = false;
+    $.ui.removeFooterMenu();
+    $.ui.backButtonText = "返回";
+
+    initCommonSentences();
+
+    $(".remove-all-text").on("click", function(){
+       $("#synthesize_content").val('');
+       $("#text").text('');
+    });
+}
 
 function onDeviceReady() {
     $.ui.loadContent("#main",false,false,"fade");
@@ -64,18 +76,20 @@ function onResults(response) {
 function orientationChanged(orientation) {
     if (orientation == 'Landscape' && $("#header .i-write.active").length == 1) {
         $("#header .you-speak").click();
-        screenOrientation.set("sensorLandscape");
     } else if (orientation == 'Portrait' && $("#header .you-speak.active").length == 1) {
         $("#header .i-write").click();
-        screenOrientation.set("portrait");
     }
 }
 
 function syncToText(){
+    screenOrientation.set("portrait");
+
     $("#synthesize_content").val($("#text").text());
 }
 
 function syncToVoice(){
+    screenOrientation.set("landscape");
+
     $("#text").text($("#synthesize_content").val());
 }
 
