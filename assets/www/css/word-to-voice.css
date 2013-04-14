@@ -1,10 +1,4 @@
 
-#main .synthesize-wrap {
-    position: relative;
-    width: 100%;
-    padding-right: 114px;
-}
-
 #main #synthesize_content {
    width: 100%;
    height: 278px;
@@ -16,41 +10,30 @@
 #synthesize-button {
     position: absolute;
     right: 5px;
-    top: 0px;
+    top: 10px;
     vertical-align: top;
     height: 280px;
     width: 105px;
     border-color: transparent;
-    background: url("../img/btn_speak.png") no-repeat 2px -4px;
+    background: url("../img/btn_speak.png") no-repeat -102px -4px;
 }
 
 .synthesizer {
-    padding: 10px 15px;
-    background-color: #dbebf3;
     position: relative;
     background-color: #DBEBF3;
-    padding: 10px 15px;
+    padding: 10px 115px 10px 15px;
     box-shadow: inset 0 -1px 2px rgba(39, 67, 97, 0.25);
 }
 .remove-all-text {
-    z-index: 10;
-    border-radius: 12px;
+    z-index: 100000;
+    border-radius: 20px;
     padding: 2px 5px;
     background-color: #ccc;
     color: white;
     position: absolute;
-    bottom: 20px;
-    right: 135px;
-    font-size: 18px;
-}
-
-.loading-image, .voice-gif {
-    display: none;
-    position: absolute;
-    top: 66px;
-    left: 33px;
-    width: 40px;
-    height: 40px;
+    bottom: 15px;
+    left: 18px;
+    font-size: 30px;
 }
 
 .large-font {

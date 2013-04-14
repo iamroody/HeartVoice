@@ -1,7 +1,6 @@
 $(document).ready(function(){
     initialApp();
     document.addEventListener("deviceready", onDeviceReady, false);
-//    onDeviceReady();
 });
 
 function initialApp() {
@@ -25,18 +24,6 @@ function onDeviceReady() {
     screenOrientation.detect();
 }
 
-function activePlayButton(){
-    target = $("#synthesize-button")
-    if($("#synthesize_content").val() != ''){
-        target.removeAttr('disabled');
-        target.find("img").hide();
-        target.css("background-position", "-102px -4px");
-    }else{
-        target.css("background-position", "2px -4px");
-        target.attr("disabled","disabled");
-    }
-}
-
 function startRecognizer(){
     if (checkConnection() == false) return;
     var options = {
@@ -53,9 +40,9 @@ function startRecognizer(){
 }
 
 function startSynthesizer(){
+    if ($("#synthesize_content").val() == '') return;
     if (checkConnection() == false) return;
-    $("#synthesize-button").css("background-position", "-308px -4px");
-    $(".loading-image").show();
+    $(".circularG").show();
     var options = {
         appId: '51236408',
         voiceName: 'xiaoyan',
@@ -104,3 +91,8 @@ function checkConnection() {
     }
     return true
 }
+
+function onPlayEnd(){
+    $(".circularG").hide();
+}
+

@@ -18,67 +18,76 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi"/>
 
-        <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" type="text/css" href="css/word-to-voice.css" />
-        <link rel="stylesheet" type="text/css" href="css/voice-to-word.css" />
-        <link rel="stylesheet" type="text/css" href="css/common-sentences.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/jq.ui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/word-to-voice.css"/>
+    <link rel="stylesheet" type="text/css" href="css/voice-to-word.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common-sentences.css"/>
+    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
 
-        <script type="text/javascript" src="js/lib/jq.mobi.min.js" ></script>
-        <script type="text/javascript" src="js/lib/jq.ui.min.js" ></script>
-        <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
-        <script type="text/javascript" src="js/plugin/iflytek.js"></script>
-        <script type="text/javascript" src="js/plugin/screen-orientation.js"></script>
-        <script type="text/javascript" src="js/plugin/childbrowser.js"></script>
-        <script type="text/javascript" src="js/word-to-voice.js"></script>
-        <script type="text/javascript" src="js/common-sentences.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/lib/jq.mobi.min.js"></script>
+    <script type="text/javascript" src="js/lib/jq.ui.min.js"></script>
+    <script type="text/javascript" src="js/lib/cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="js/plugin/iflytek.js"></script>
+    <script type="text/javascript" src="js/plugin/screen-orientation.js"></script>
+    <script type="text/javascript" src="js/plugin/childbrowser.js"></script>
+    <script type="text/javascript" src="js/word-to-voice.js"></script>
+    <script type="text/javascript" src="js/common-sentences.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
-    </head>
-    <body>
-    <div id="jQUi">
-        <div id="content">
-            <div class="panel" id="main">
-                <header>
-                    <a class="nav left active i-write" href="#main"><span>我写</span></a>
-                    <img class="head-splitter" src="img/head_splitter.png">
-                    <a class="nav right you-speak" href="#voice_to_word" data-transition='fade' onclick="syncToVoice()"><span>你说</span></a>
-                </header>
+</head>
+<body>
+<div id="jQUi">
+    <div id="content">
+        <div class="panel" id="main">
+            <header>
+                <a class="nav left active i-write" href="#main"><span>我写</span></a>
+                <img class="head-splitter" src="img/head_splitter.png">
+                <a class="nav right you-speak" href="#voice_to_word" data-transition='fade'
+                   onclick="syncToVoice()"><span>你说</span></a>
+            </header>
 
-                <div class="synthesizer">
-                    <span class="remove-all-text">&#10005;</span>
-                    <div class="synthesize-wrap">
-                        <textarea oninput="activePlayButton()" id="synthesize_content" class="large-font"></textarea>
-                        <button type="button" id="synthesize-button" disabled onclick="startSynthesizer()">
-                            <img class="loading-image" src="img/loading.gif">
-                            <img class="voice-gif" src="img/voice.gif">
-                        </button>
-
+            <div class="synthesizer">
+                <span class="remove-all-text">&#10005;</span>
+                <textarea id="synthesize_content" class="large-font"></textarea>
+                <button type="button" id="synthesize-button" onclick="startSynthesizer()">
+                    <div id="circularG">
+                        <div id="circularG_1" class="circularG"></div>
+                        <div id="circularG_2" class="circularG"></div>
+                        <div id="circularG_3" class="circularG"></div>
+                        <div id="circularG_4" class="circularG"></div>
+                        <div id="circularG_5" class="circularG"></div>
+                        <div id="circularG_6" class="circularG"></div>
+                        <div id="circularG_7" class="circularG"></div>
+                        <div id="circularG_8" class="circularG"></div>
                     </div>
-                </div>
-
-                <div class="categories"></div>
+                </button>
             </div>
-            <div class="panel" id="voice_to_word">
-                <header>
-                    <a class="i-write nav left" href="#main" data-transition='fade' onclick="syncToText()"><span>我写</span></a>
-                    <img class="head-splitter" src="img/head_splitter.png">
-                    <a class="nav active right you-speak" href="#voice_to_word" data-transition='fade'><span>你说</span></a>
-                </header>
-                <div id="text" class='large-font'></div>
-                <div class="button-container">
-                    <div class="button" id="recognizer-button" onclick="startRecognizer()"></div>
-                </div>
+
+            <div class="categories"></div>
+            <div class="feedback">
+                <span>意见反馈</span>
+            </div>
+        </div>
+        <div class="panel" id="voice_to_word">
+            <header>
+                <a class="i-write nav left" href="#main" data-transition='fade'
+                   onclick="syncToText()"><span>我写</span></a>
+                <img class="head-splitter" src="img/head_splitter.png">
+                <a class="nav active right you-speak" href="#voice_to_word" data-transition='fade'><span>你说</span></a>
+            </header>
+            <div id="text" class='large-font'></div>
+            <div class="button-container">
+                <div class="button" id="recognizer-button" onclick="startRecognizer()"></div>
             </div>
         </div>
     </div>
-    <div class="feedback hide">
-        <span>意见反馈</span>
-    </div>
-    </body>
+</div>
+</body>
 </html>
