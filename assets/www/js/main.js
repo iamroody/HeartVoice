@@ -6,8 +6,8 @@ function onDeviceReady() {
     showIntro();
     initialApp();
 
-    navigator.splashscreen.hide();
     screenOrientation.detect();
+    navigator.splashscreen.hide();
 }
 
 function initialApp() {

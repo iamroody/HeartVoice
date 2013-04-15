@@ -19,8 +19,9 @@ function initCarousel() {
 function showIntro() {
     if (window.localStorage.getItem("logged") != "yes") {
        $("#carousel_container").show();
-       $("#jQUi").hide();
        window.localStorage.setItem("logged", "yes");
        initCarousel();
+    } else {
+        $("#jQUi").show();
     }
 }
