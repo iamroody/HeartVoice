@@ -166,3 +166,7 @@ a.active.nav span{
 .feedback span {
     line-height: 50px;
 }
+
+.carousel_paging2_selected {
+    background-color: #666 !important;
+}

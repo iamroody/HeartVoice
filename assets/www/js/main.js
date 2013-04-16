@@ -1,5 +1,6 @@
 $(document).ready(function(){
     document.addEventListener("deviceready", onDeviceReady, false);
+//    onDeviceReady();
 });
 
 function onDeviceReady() {
@@ -53,12 +54,12 @@ function startSynthesizer(){
 
     iftUti.synthesizer(options, function(response){
         console.log("response: " + response.errorCode + ", msg: " + response.message);
-        navigator.notification.vibrate(500);
     });
 }
 
 function onPlayEnd(){
     $("#circularG").hide();
+    navigator.notification.vibrate(500);
 }
 
 function onResults(response) {
