@@ -8,7 +8,11 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/main.css">
-
+    
+    <script src="javascripts/jquery-1.9.1.min.js"></script>
+    <script src="javascripts/jquery.slides.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    
     <title>心声</title>
   </head>
 
@@ -26,30 +30,38 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <strong>你也许不知道</strong><br>
-        <strong>我们的身边有很多听障人</strong><br>
-        <strong>他们或者是来到这个世界就未曾听到过任何欢声笑语</strong><br>
-        <strong>或者被忽然降临的疾病夺去了本该属于他们的平凡人的生活</strong><br>
-        <strong>我们希望能用自己微薄的力量，借助不断进步的科技，尝试为他们做一点点弥补</strong><br>
-        <strong>语音识别，可以帮街头的路人告诉他们车站在何方</strong><br>
-        <strong>语音合成，可以帮他们向爸爸妈妈说一声“爸妈，让你们受累了”</strong><br>
-        <strong>这或许无法让他们完全恢复往昔的欢颜，但至少可以让他们的世界变得比以前温暖一点点</strong><br>
-        <h2>我们做了心声，我们为他们代言</h2><br>
+        <div class="slides-container">
+          <div id="slides"> 
+            <img src="images/tutorial1.png">
+            <img src="images/tutorial2.png">
+            <img src="images/tutorial3.png">
+            <img src="images/tutorial4.png">
+          </div>
+          <p>心声是一个为听障人设计的Android App应用，它使用语音合成和识别功能来实现对语言和文字之间的转化，同时内置了一些生活场景中的常用语，搭建一个交流的平台。</p>
+        </div>
+          
         <div class="qrcode">
+          <h3>下载使用</h3>
+          <p>您可以用手机扫描下面的二维码进行下载安装，也可以点击<a href="downloads/HeartVoice.apk">下载</a>到您本地安装。</p>
           <img src="images/download.png">
-          <a href="downloads/HeartVoice.apk">点击下载</a>
+        </div>
+
+        <div class="description">
+          <h3>你也许不知道</h3>
+          <span>我们的身边有很多听障人</span><br>
+          <span>他们或者是来到这个世界就未曾听到过任何欢声笑语</span><br>
+          <span>或者被忽然降临的疾病夺去了本该属于他们的平凡人的生活</span><br>
+          <span>我们希望能用自己微薄的力量，借助不断进步的科技，尝试为他们做一点点弥补</span><br>
+          <span>语音识别，可以帮街头的路人告诉他们车站在何方</span><br>
+          <span>语音合成，可以帮他们向爸爸妈妈说一声“爸妈，让你们受累了”</span><br>
+          <span>这或许无法让他们完全恢复往昔的欢颜，但至少可以让他们的世界变得比以前温暖一点点</span><br>
+          <span>我们做了心声</span><br>
+          <span>我们为他们代言</span><br>
         </div>
       </section>
     </div>
-
-    <!-- FOOTER  -->
-<!--     <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">雷锋</p>
-      </footer>
-    </div>
- -->
-    
-
+    <footer class="inner">
+      <p class="copyright">如果您有好的意见或想法，请点击<a href="https://jinshuju.net/f/tCdN5E">这里</a>告诉我们</p>
+    </footer>
   </body>
 </html>

@@ -1,1 +1,8 @@
-console.log('This would be the main JS file.');
+$(function(){
+      $("#slides").slidesjs({
+      	height: 800,
+        navigation: {
+        	active: false
+        }
+      });
+    });

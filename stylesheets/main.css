@@ -2,3 +2,20 @@
 	width: 300px !important;
 	height: 300px !important;
 }
+
+#slides {
+    display:none;
+}
+
+#slides img {
+	/*width: 480px !important;*/
+	/*height: 762px !important;*/
+}
+
+.slidesjs-pagination {
+	float: right;
+}
+
+.slidesjs-pagination-item {
+	display: inline-block;
+}
