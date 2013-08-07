@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+HeartVoice.iml
+assets/
+images/.DS_Store
+libs/
+out/
+res/
+src/
+test/
